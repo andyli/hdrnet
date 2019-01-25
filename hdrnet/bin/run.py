@@ -16,6 +16,8 @@
 
 """Evaluates a trained network."""
 
+import sys; sys.path.append(".")
+
 import argparse
 import cv2
 import logging

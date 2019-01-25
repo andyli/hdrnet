@@ -4,8 +4,11 @@ BUILD_DIR = build
 LIB_DIR = lib
 BIN_DIR = bin
 
+TF_INC ?= `python -c 'import tensorflow as tf; print(tf.sysconfig.get_include())'`
+TF_LIB ?= `python -c 'import tensorflow as tf; print(tf.sysconfig.get_lib())'`
+
 CC = c++ -std=c++11 -O2
-CFLAGS = -fPIC -I$(TF_INC) `pkg-config opencv --cflags` -I$(INC_DIR)
+CFLAGS = -fPIC -I$(TF_INC) `pkg-config opencv --cflags` -I$(INC_DIR) -I$(TF_INC)
 LDFLAGS = `pkg-config opencv --libs` -L$(TF_LIB) -ltensorflow -lglut -lGLEW -lGL -lgflags
 
 SRC = main.cc renderer.cc utils.cc processor.cc
