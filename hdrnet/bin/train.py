@@ -15,6 +15,8 @@
 
 """Train a model."""
 
+import sys; sys.path.append(".")
+
 import argparse
 import logging
 import numpy as np

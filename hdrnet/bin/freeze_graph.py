@@ -16,6 +16,8 @@
 
 """Freeze graph weights; use to optimize runtime."""
 
+import sys; sys.path.append(".")
+
 import argparse
 import logging
 import numpy as np
